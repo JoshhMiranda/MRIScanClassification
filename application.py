@@ -1,16 +1,11 @@
 from flask import Flask, render_template, request, jsonify
 import numpy as np
 from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing import image
-from tensorflow.keras.applications.imagenet_utils import preprocess_input
-import os
 from werkzeug.utils import secure_filename
 from PIL import Image
 
 application = Flask(__name__, template_folder='templates')
 app = application
-# UPLOAD_FOLDER = 'static/uploads'
-# application.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 alex_loaded = load_model("artifacts/mri_classifier_local_v3.h5")
 
@@ -27,11 +22,6 @@ def process_image(image_path):
         img_array = np.stack((img_array,) * 3, axis=-1)
 
     img_array = img_array.reshape((1, 256, 256, 3))
-    
-    # img = image.load_img(image_path, target_size=(256, 256))
-    # img_array = image.img_to_array(img)
-    # img_array = np.expand_dims(img_array, axis=0)
-    # img_array = preprocess_input(img_array)
     return img_array
 
 def predict_image(image_array):
@@ -58,13 +48,8 @@ def upload_file():
     if file.filename == '':
         return jsonify({'error': 'No selected file'}), 400
     
-    # Save the uploaded file to the uploads folder
-    # filename = secure_filename(file.filename)
-    # file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-    # file.save(file_path)
     
     # Process the uploaded image
-    # img_array = process_image(file_path)
     img_array = process_image(file.stream)
     
     # Perform prediction
@@ -72,9 +57,8 @@ def upload_file():
     
     # Prepare the result to display in the HTML page
     prediction_result = f'Predicted class: {predicted_class}'
-    # image_url = f'/static/uploads/{filename}'  # Assuming 'uploads' folder is inside 'static'
 
-    return render_template('index.html', prediction=prediction_result) #, image_url=image_url)
+    return render_template('index.html', prediction=prediction_result)
 
 
 if __name__ == '__main__':
