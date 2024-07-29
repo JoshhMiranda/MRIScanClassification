@@ -130,3 +130,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# classifier model
+/artifacts/mri_classifier_local_v3.h5
