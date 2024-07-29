@@ -1,4 +1,9 @@
 numpy==1.23.5
 tensorflow==2.15.0
 pillow==10.4.0
+<<<<<<< HEAD
 flask==3.0.3
+=======
+flask==3.0.3
+gunicorn==20.0.2
+>>>>>>> 47066dd9ee72ba8f721f85a5aa171679d7ce7ef1
