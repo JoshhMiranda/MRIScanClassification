@@ -3,15 +3,21 @@ import numpy as np
 from tensorflow.keras.models import load_model
 from werkzeug.utils import secure_filename
 from PIL import Image
+import mlflow
+import mlflow.keras
 
 application = Flask(__name__, template_folder='templates')
 app = application
 
 alex_loaded = load_model("artifacts/mri_classifier_local_v3.h5")
 
+# Load model from MLflow
+# model_uri = "models:/mri_scan_classifier/latest"  # Adjust based on your model name and version
+# alex_loaded = mlflow.keras.load_model(model_uri)
+
 # Define your class labels based on your model training
 classes = ['glioma', 'meningioma', 'notumor', 'pituitary']
-
+    
 def process_image(image_path):
     # Load and preprocess the image
     img = Image.open(image_path)

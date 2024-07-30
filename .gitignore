@@ -133,4 +133,12 @@ dmypy.json
 
 
 # classifier model
-/artifacts/mri_classifier_local_v3.h5
+artifacts/
+.artifacts
+artifacts.bak/
+
+
+# mlflow files
+mlruns/*
+model/data/*
+mri_scan_classifier/*
