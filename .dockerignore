@@ -1,0 +1,6 @@
+# Ignore these specific directories
+
+mlruns/
+model/
+mri_scan/
+mri_scan_classifier/

@@ -3,13 +3,7 @@ tensorflow==2.15.0
 pillow==10.4.0
 flask==2.3.3 # 3.3.3
 pandas
-dvc
-mlflow==2.2.2
+mlflow==2.15.0
 matplotlib
-pyYAML
-tqdm
-python-box==6.0.2
-ensure==1.0.2
 
--e.
 
