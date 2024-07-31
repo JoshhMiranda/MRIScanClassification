@@ -2,7 +2,7 @@
 FROM python:3.10.13-slim
 
 # Use a base image with TensorFlow and Python
-FROM tensorflow/tensorflow:2.15.0
+# FROM tensorflow/tensorflow:2.15.0
 
 # Set environment variables
 ENV FLASK_APP=application.py
@@ -23,6 +23,9 @@ RUN pip install --ignore-installed --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code into the container
 COPY . .
+
+# Copy the model file into the container
+COPY artifacts/mri_classifier_local_v3.h5 artifacts/
 
 # Expose port 8080 to the outside world
 EXPOSE 8080
