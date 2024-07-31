@@ -1,3 +1,6 @@
+# Use Python 3.10.13 slim image
+FROM python:3.10.13-slim
+
 # Use a base image with TensorFlow and Python
 FROM tensorflow/tensorflow:2.15.0
 
