@@ -31,7 +31,7 @@ FROM python:3.10.13-slim
 WORKDIR /app
 
 # Copy all files into /app
-COPY . /app
+COPY . .
 
 # Update package list and install necessary packages
 RUN apt-get update -y && \
@@ -46,4 +46,5 @@ RUN apt-get update -y && \
 EXPOSE 8080
 
 # Run the application
-CMD ["python3", "app.py", "--host", "0.0.0.0"]
+# CMD ["python3", "app.py", "--host", "0.0.0.0"]
+CMD ["flask", "run", "--host", "0.0.0.0"]
