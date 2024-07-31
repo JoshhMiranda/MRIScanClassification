@@ -20,8 +20,7 @@
 # # Copy the rest of the application code into the container
 # COPY . .
 
-# # Expose port 5000 to the outside world
-# # EXPOSE 5000
+
 
 # # Command to run the application
 # CMD ["flask", "run"]
@@ -43,6 +42,8 @@ RUN apt-get update -y && \
 # RUN ls -l /app
 # RUN python3 -c "import os; print(os.path.isfile('/app/application.py'))"
 
+# Expose port 5000 to the outside world
+EXPOSE 8080
 
 # Run the application
-CMD ["python3", "app.py"]
+CMD ["python3", "app.py", "--host", "0.0.0.0"]
