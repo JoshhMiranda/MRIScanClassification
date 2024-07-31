@@ -88,10 +88,8 @@ jobs:
          
       - name: Stop and remove  container if running
         run: |
-         if [ "$(docker ps -q -f name=mltest)" ]; then \
-           docker stop mltest; \
-           docker rm -fv mltest; \
-         fi
+         docker stop mltest
+         docker rm mltest
        
       - name: Run Docker Image to serve users
         run: |
