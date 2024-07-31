@@ -3,8 +3,8 @@ import numpy as np
 from tensorflow.keras.models import load_model
 from werkzeug.utils import secure_filename
 from PIL import Image
-import mlflow
-import mlflow.keras
+# import mlflow
+# import mlflow.keras
 
 application = Flask(__name__, template_folder='templates')
 app = application
