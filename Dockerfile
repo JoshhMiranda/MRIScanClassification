@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 # # Use a base image with TensorFlow and Python
+=======
+# Use Python 3.10.13 slim image
+FROM python:3.10.13-slim
+
+# Use a base image with TensorFlow and Python
+>>>>>>> 6bb77420b4b402a62e4cd946d86f0fe4d1be432c
 # FROM tensorflow/tensorflow:2.15.0
 
 # # Set environment variables
@@ -43,6 +50,7 @@ RUN apt-get update -y && \
 # # Verify the file exists and permissions
 # RUN ls -l /app
 # RUN python3 -c "import os; print(os.path.isfile('/app/application.py'))"
+
 
 # Run the application
 CMD ["python3", "app.py"]
