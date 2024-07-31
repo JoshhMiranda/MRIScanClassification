@@ -6,8 +6,8 @@ from PIL import Image
 # import mlflow
 # import mlflow.keras
 
-application = Flask(__name__, template_folder='templates')
-app = application
+app = Flask(__name__, template_folder='templates')
+# app = application
 
 alex_loaded = load_model("artifacts/mri_classifier_local_v3.h5")
 

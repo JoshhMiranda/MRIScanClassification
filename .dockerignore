@@ -4,3 +4,7 @@ mlruns/
 model/
 mri_scan/
 mri_scan_classifier/
+save_model.py
+train_model.py
+.ebextensions/
+*.png
