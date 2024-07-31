@@ -21,8 +21,8 @@ RUN pip install --ignore-installed --no-cache-dir -r requirements.txt
 # Copy the rest of the application code into the container
 COPY . .
 
-# Expose port 5000 to the outside world
-# EXPOSE 5000
+# Expose port 8080 to the outside world
+EXPOSE 8080
 
 # Command to run the application
 CMD ["flask", "run"]
