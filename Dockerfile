@@ -31,11 +31,13 @@ FROM python:3.10.13-slim
 WORKDIR /app
 
 # Copy all files into /app
+
+# COPY . /app
 COPY . .
 
 # copy artifacts folder into artifacts
 
-COPY artifacts artifacts
+# COPY artifacts artifacts
 
 # Update package list and install necessary packages
 RUN apt-get update -y && \
