@@ -33,6 +33,10 @@ WORKDIR /app
 # Copy all files into /app
 COPY . .
 
+# copy artifacts folder into artifacts
+
+COPY artifacts artifacts
+
 # Update package list and install necessary packages
 RUN apt-get update -y && \
     apt-get install -y awscli ffmpeg libsm6 libxext6 unzip && \
