@@ -31,13 +31,11 @@ FROM python:3.10.13-slim
 WORKDIR /app
 
 # Copy all files into /app
+COPY . /app
 
-# COPY . /app
-COPY . .
+# # copy artifacts folder into artifacts
+COPY artifacts /app/artifacts
 
-# copy artifacts folder into artifacts
-
-# COPY artifacts artifacts
 
 # Update package list and install necessary packages
 RUN apt-get update -y && \
@@ -48,9 +46,10 @@ RUN apt-get update -y && \
 # RUN ls -l /app
 # RUN python3 -c "import os; print(os.path.isfile('/app/application.py'))"
 
-# Expose port 5000 to the outside world
+# Expose port 8080 to the outside world
 EXPOSE 8080
 
 # Run the application
 # CMD ["python3", "app.py", "--host", "0.0.0.0"]
-CMD ["flask", "run", "--host", "0.0.0.0"]
+# CMD ["flask", "run", "--host", "0.0.0.0"]
+CMD ["python", "app.py"]
