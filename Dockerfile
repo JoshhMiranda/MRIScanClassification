@@ -28,6 +28,8 @@
 
 FROM python:3.10.13-slim
 
+
+RUN apt update -y && apt install awscli -y
 WORKDIR /app
 
 # Copy all files into /app
@@ -36,11 +38,12 @@ COPY . /app
 # # copy artifacts folder into artifacts
 COPY artifacts /app/artifacts
 
-
+RUN pip install -r requirements.txt
 # Update package list and install necessary packages
-RUN apt-get update -y && \
-    apt-get install -y awscli ffmpeg libsm6 libxext6 unzip && \
-    pip install -r requirements.txt
+# RUN apt-get update -y && \
+#     apt-get install -y awscli ffmpeg libsm6 libxext6 unzip && \
+#     pip install -r requirements.txt
+
 
 # # Verify the file exists and permissions
 # RUN ls -l /app
@@ -52,4 +55,4 @@ EXPOSE 8080
 # Run the application
 # CMD ["python3", "app.py", "--host", "0.0.0.0"]
 # CMD ["flask", "run", "--host", "0.0.0.0"]
-CMD ["python", "app.py"]
+CMD ["python3", "app.py"]
