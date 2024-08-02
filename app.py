@@ -9,6 +9,10 @@ from PIL import Image
 app = Flask(__name__, template_folder='templates')
 # app = application
 
+# for local testing uncomment:
+# alex_loaded = load_model("artifacts/mri_classifier_local_v3.h5")
+
+# for docker image creation uncomment:
 alex_loaded = load_model("/app/artifacts/mri_classifier_local_v3.h5")
 
 # Load model from MLflow
